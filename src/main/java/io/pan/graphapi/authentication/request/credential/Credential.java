@@ -1,6 +1,5 @@
 package io.pan.graphapi.authentication.request.credential;
 
-import java.net.URL;
 import java.util.List;
 
 /**
@@ -14,5 +13,7 @@ public interface Credential {
 
   List<String> scopes();
 
-  URL tokenUrl();
+  String tenant();
+
+  String nationalCloud();
 }

@@ -45,8 +45,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 @AllArgsConstructor
@@ -58,8 +56,7 @@ public class GraphApiCredentials implements ApplicationCredential {
   private final String clientSecret;
   private final List<String> scopes;
   private final String nationalCloud;
-  private final String tokenPath;
-  private final String tenantId;
+  private final String tenant;
   
   @Override
   public String clientId() {
@@ -77,12 +74,13 @@ public class GraphApiCredentials implements ApplicationCredential {
   }
 
   @Override
-  public URL tokenUrl() {
-    try {
-      return new URL(nationalCloud + tenantId + tokenPath);
-    } catch (MalformedURLException e) {
-      throw new IllegalStateException("Invalid token URL configuration.");
-    }
+  public String tenant() {
+   return tenant;
+  }
+    
+  @Override
+  public String nationalCloud() {
+   return nationalCloud;
   }
 }
 ```

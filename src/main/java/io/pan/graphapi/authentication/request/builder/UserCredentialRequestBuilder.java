@@ -15,7 +15,7 @@ public class UserCredentialRequestBuilder implements CredentialRequestBuilder {
 
   @Override
   public TokenRequestBuilder get() {
-    return OAuthClientRequest.tokenLocation(credential.tokenUrl().toString())
+    return OAuthClientRequest.tokenLocation(new TokenUrl(credential).get())
         .setClientId(credential.clientId())
         .setClientSecret(credential.clientSecret())
         .setUsername(credential.user())

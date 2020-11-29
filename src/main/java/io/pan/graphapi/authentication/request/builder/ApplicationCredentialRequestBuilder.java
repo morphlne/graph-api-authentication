@@ -15,7 +15,7 @@ public class ApplicationCredentialRequestBuilder implements CredentialRequestBui
 
   @Override
   public TokenRequestBuilder get() {
-    return OAuthClientRequest.tokenLocation(credential.tokenUrl().toString())
+    return OAuthClientRequest.tokenLocation(new TokenUrl(credential).get())
         .setClientId(credential.clientId())
         .setClientSecret(credential.clientSecret())
         .setGrantType(GrantType.CLIENT_CREDENTIALS)
