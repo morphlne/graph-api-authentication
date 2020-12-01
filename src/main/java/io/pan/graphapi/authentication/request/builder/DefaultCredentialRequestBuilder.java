@@ -16,11 +16,6 @@ public class DefaultCredentialRequestBuilder implements CredentialRequestBuilder
     return OAuthClientRequest.tokenLocation(new TokenUrl(credential).get())
         .setClientId(credential.clientId())
         .setClientSecret(credential.clientSecret())
-        .setScope(
-            String.join(
-                " ",
-                credential.scopes()
-            )
-        );
+        .setScope(new Scope(credential.scopes()).get());
   }
 }
