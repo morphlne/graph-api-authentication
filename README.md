@@ -1,6 +1,20 @@
 ### graph-api-auth
 
-Library provides simple authentication for [Microsoft Graph Java SDK](https://mvnrepository.com/artifact/com.microsoft.graph/microsoft-graph)
+Library provides simple authentication for [Microsoft Graph Java SDK](https://mvnrepository.com/artifact/com.microsoft.graph/microsoft-graph) \
+Check [graph-api-spring-boot-starter](https://github.com/morphlne/graph-api-spring-boot-starter) for quick start with Spring Boot application \
+Inspired by [msgraph-sdk-java-auth](https://github.com/microsoftgraph/msgraph-sdk-java-auth)
+
+### Consumed properties
+
+- **clientId** - application (client) ID
+- **clientSecret** - application secret
+- **tenant** - directory (tenant) ID
+- **scopes** - list of scopes. Optional. `https://graph.microsoft.com/.default` used by default
+- **nationalCloud** - national cloud using for authentication. Optional. `https://login.microsoftonline.com` used by default
+
+Additionally for delegate permissions should be specified:
+- **user** - userPrincipalName
+- **password** - user password
 
 ### Usage
 <details>
